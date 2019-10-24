@@ -14,8 +14,10 @@
 			<tr>
 				<td>${destination.region}</td>
 				<td>${destination.description}</td>
+				<td><a href="SupprimerDestinationServlet?id=${destination.id}">(X)</a></td>
 			</tr>
 		</c:forEach>
+		
 	</table>
 	
 

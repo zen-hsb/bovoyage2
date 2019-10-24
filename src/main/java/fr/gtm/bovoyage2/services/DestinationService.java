@@ -24,8 +24,9 @@ public class DestinationService {
 		destinationdao.update(destination);
 	}
 	
-	public void delete(long id) {
-		destinationdao.delete(id);
+	public void delete(String id) {
+		long identifiant = Long.parseLong(id);
+		destinationdao.delete(identifiant);
 	}
 	
 	public List<Destination> getAllDestinations() {
