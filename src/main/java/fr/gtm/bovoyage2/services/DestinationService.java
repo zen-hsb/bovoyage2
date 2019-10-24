@@ -28,8 +28,8 @@ public class DestinationService {
 		destinationdao.delete(id);
 	}
 	
-	public List<Destination> getDestinations() {
-		return destinationdao.getDestinations();
+	public List<Destination> getAllDestinations() {
+		return destinationdao.getAllDestinations();
 	}
 	
 	public Destination findById(long id) {

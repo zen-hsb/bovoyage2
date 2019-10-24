@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import fr.gtm.bovoyage2.entities.Destination;
 import fr.gtm.bovoyage2.services.DestinationService;
 
 /**
@@ -28,10 +29,10 @@ public class AfficherDestinationServlet extends HttpServlet {
 		
 		String page = "";
 		
-		List<Destination> destinations = service.getDestinations();
+		List<Destination> destinations = service.getAllDestinations();
 		request.setAttribute("destinations", destinations);
 		
-		page = "/show-destination.jsp";
+		page = "/show-destinations.jsp";
 		
 		RequestDispatcher rd = getServletContext().getRequestDispatcher(page);
 		rd.forward(request, response);

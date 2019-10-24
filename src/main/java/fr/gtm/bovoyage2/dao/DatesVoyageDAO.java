@@ -5,6 +5,9 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 
+import fr.gtm.bovoyage2.entities.DatesVoyage;
+import fr.gtm.bovoyage2.entities.Destination;
+
 public class DatesVoyageDAO extends AbstractDAO<DatesVoyage, Long> {
 	
 	public DatesVoyageDAO(EntityManagerFactory emf) {
@@ -13,7 +16,7 @@ public class DatesVoyageDAO extends AbstractDAO<DatesVoyage, Long> {
 	
 	public List<DatesVoyage> getDatesVoyageByDestination(Destination destination) {
 		EntityManager em = getEntityManagerFactory().createEntityManager();
-		List<DatesVoayge> datesvoyages = em.createNamedQuery("", DatesVoyage.class)
+		List<DatesVoyage> datesvoyages = em.createNamedQuery("", DatesVoyage.class)
 												.setParameter("destination", destination+"%")
 												.getResultList();
 		em.close();
