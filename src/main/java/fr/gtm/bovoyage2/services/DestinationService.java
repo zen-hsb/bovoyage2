@@ -1,11 +1,13 @@
 package fr.gtm.bovoyage2.services;
 
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 
 import fr.gtm.bovoyage2.dao.DestinationDAO;
+import fr.gtm.bovoyage2.entities.DatesVoyage;
 import fr.gtm.bovoyage2.entities.Destination;
 
 public class DestinationService {
@@ -35,6 +37,10 @@ public class DestinationService {
 	
 	public Destination findById(long id) {
 		return destinationdao.findById(id);
+	}
+	
+	public Set<DatesVoyage> getDatesVoyageByDestinationId(long id) {
+		return destinationdao.getDatesVoyageByDestinationId(id);
 	}
 
 }

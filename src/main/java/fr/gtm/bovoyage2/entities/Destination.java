@@ -28,7 +28,7 @@ import javax.persistence.Table;
 @Table(name = "destinations")
 @NamedQueries({
 	//@NamedQuery(name = "Destination.getByNom",query = "SELECT d FROM Destination d WHERE d.region LIKE :region"),
-	//@NamedQuery(name = "Destination.getByDateDeVoyage",query = "SELECT d FROM Destination d WHERE d.dates_voyages LIKE :dates_voyages"),
+	@NamedQuery(name = "Destination.getDestinationByDatesVoyage",query = "SELECT d.datesVoyage FROM Destination d WHERE d.datesVoyage IS NOT EMPTY"),
 	@NamedQuery(name = "Destination.getAllDestinations",query = "SELECT d FROM Destination d")	
 })
 public class Destination implements Serializable {
@@ -41,11 +41,11 @@ public class Destination implements Serializable {
 	//private String nomImages;
 	
 	
-//	@OneToMany(fetch=FetchType.EAGER)
-//	@JoinColumn(name = "fk_destination")
-//	private Set<DatesVoyage> datesVoyage = new HashSet<>();		
-//	@JoinColumn(name = "fk_destination")
-//	private Set<Image> images = new HashSet<>();			
+	@OneToMany(fetch=FetchType.LAZY)
+	@JoinColumn(name = "fk_destination")
+	private Set<DatesVoyage> datesVoyage = new HashSet<>();		
+
+			
 	
 	
 	public Destination() {
@@ -101,13 +101,13 @@ public class Destination implements Serializable {
 //	}
 
 
-//	public Set<DatesVoyage> getDatesVoyage() {
-//		return datesVoyage;
-//	}
-//	
-//	public void setDatesVoyage(Set<DatesVoyage> datesVoyage) {
-//		this.datesVoyage = datesVoyage;
-//	}
+	public Set<DatesVoyage> getDatesVoyage() {
+		return datesVoyage;
+	}
+	
+	public void setDatesVoyage(Set<DatesVoyage> datesVoyage) {
+		this.datesVoyage = datesVoyage;
+	}
 	
 	
 	@Override
@@ -115,4 +115,5 @@ public class Destination implements Serializable {
 		return "Destination [id=" + id + ", region=" + region + ", description=" + description + ", nomImages="
 				+ "]";
 	}
+
 }

@@ -31,6 +31,42 @@ public class DatesVoyage implements Serializable {
 	@Column(name="nb_places")
 	private int nbrePlaces;
 	
+	public long getId() {
+		return id;
+	}
+	public void setId(long id) {
+		this.id = id;
+	}
+	public Date getDateAller() {
+		return dateAller;
+	}
+	public void setDateAller(Date dateAller) {
+		this.dateAller = dateAller;
+	}
+	public Date getDateRetour() {
+		return dateRetour;
+	}
+	public void setDateRetour(Date dateRetour) {
+		this.dateRetour = dateRetour;
+	}
+	public int getPrixHT() {
+		return prixHT;
+	}
+	public void setPrixHT(int prixHT) {
+		this.prixHT = prixHT;
+	}
+	public int getNbrePlaces() {
+		return nbrePlaces;
+	}
+	public void setNbrePlaces(int nbrePlaces) {
+		this.nbrePlaces = nbrePlaces;
+	}
+	@Override
+	public String toString() {
+		return "DatesVoyage [dateAller=" + dateAller + ", dateRetour=" + dateRetour + ", prixHT=" + prixHT
+				+ ", nbrePlaces=" + nbrePlaces + "]";
+	}
 	
-
+	
+	
 }
