@@ -2,7 +2,6 @@ package fr.gtm.bovoyage2.servlets;
 
 import java.io.IOException;
 import java.util.Iterator;
-import java.util.List;
 import java.util.Set;
 
 import javax.servlet.RequestDispatcher;
@@ -14,43 +13,50 @@ import javax.servlet.http.HttpServletResponse;
 
 import fr.gtm.bovoyage2.entities.DatesVoyage;
 import fr.gtm.bovoyage2.entities.Destination;
-import fr.gtm.bovoyage2.services.DatesVoyageService;
 import fr.gtm.bovoyage2.services.DestinationService;
 
 /**
- * Servlet implementation class SupprimerDestinationServlet
+ * Servlet implementation class ModifierDatesVoyageServlet1
  */
-@WebServlet("/SupprimerDestinationServlet")
-public class SupprimerDestinationServlet extends HttpServlet {
+@WebServlet("/ModifierDatesVoyageServlet1")
+public class ModifierDatesVoyageServlet1 extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
+       
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		DestinationService service = (DestinationService) getServletContext().getAttribute(Constantes.DESTINATION_SERVICE);
 		String page="";
-		String id = request.getParameter("id");
-		Long identifiant = Long.valueOf(id);
-		Set<DatesVoyage> datesvoyages = service.getDatesVoyageByDestinationId(identifiant);
+		
+		Long id1 = Long.valueOf(request.getParameter("id1"));
+		Long id2 = Long.valueOf(request.getParameter("id2"));
+		Destination destination = service.findById(id2);
+		Set<DatesVoyage> datesvoyage = service.getDatesVoyageByDestinationId(id2);
 		DatesVoyage date = new DatesVoyage();
+		DatesVoyage datesvoyages = new DatesVoyage();
 		
-		Iterator<DatesVoyage> it = datesvoyages.iterator();
-		while(it.hasNext()) {
+		Iterator<DatesVoyage> it = datesvoyage.iterator();
+		while (it.hasNext()) {
 			date = it.next();
-			service.deleteDatesVoyage(date.getId());
-			it.remove();
+			if(date.getId()==id1) {
+				datesvoyages = date;
+			}
 		}
-
-		service.findById(identifiant).setDatesVoyage(datesvoyages);
-		service.delete(id);
 		
-		page = "/AfficherDestinationServlet";
+		request.setAttribute("destination", destination);
+		request.setAttribute("datesvoyages", datesvoyages);
+		
+		page = "/modifier-datesvoyage.jsp";
+		
 		RequestDispatcher rd = getServletContext().getRequestDispatcher(page);
 		rd.forward(request, response);
-	
 	}
-	
 
-	
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);

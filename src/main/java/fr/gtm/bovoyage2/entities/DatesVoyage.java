@@ -27,7 +27,7 @@ public class DatesVoyage implements Serializable {
 	private Date dateAller;
 	@Column(name="date_retour")
 	private Date dateRetour;
-	private int prixHT;
+	private float prixHT;
 	@Column(name="nb_places")
 	private int nbrePlaces;
 	
@@ -49,10 +49,10 @@ public class DatesVoyage implements Serializable {
 	public void setDateRetour(Date dateRetour) {
 		this.dateRetour = dateRetour;
 	}
-	public int getPrixHT() {
+	public float getPrixHT() {
 		return prixHT;
 	}
-	public void setPrixHT(int prixHT) {
+	public void setPrixHT(float prixHT) {
 		this.prixHT = prixHT;
 	}
 	public int getNbrePlaces() {

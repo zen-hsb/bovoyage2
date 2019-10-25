@@ -32,8 +32,8 @@
 						</a></li>
 						<li class="nav-item active"><a class="nav-link"
 							href="AfficherDestinationServlet">Liste des destinations</a></li>
-						<li class="nav-item"><a class="nav-link" href="#">Créer
-								une destination</a></li>
+						<li class="nav-item"><a class="nav-link"
+							href="creer-destination.jsp">Créer une destination</a></li>
 					</ul>
 				</div>
 			</nav>
@@ -44,23 +44,8 @@
 		<div class="card-group">
 			<c:forEach items="${destinations}" var="destination">
 				<div class="card">
-					<div id="carouselExampleSlidesOnly" class="carousel slide"
-						data-ride="carousel">
-						<div class="carousel-inner">
-							<div class="carousel-item active">
-								<img class="card-img-top" src="images/Papeete1.jpg"
-									alt="First slide">
-							</div>
-							<div class="carousel-item">
-								<img class="card-img-top" src="images/Papeete2.jpg"
-									alt="Second slide">
-							</div>
-							<div class="carousel-item">
-								<img class="card-img-top" src="images/Papeete3.jpg"
-									alt="Third slide">
-							</div>
-						</div>
-					</div>
+					<form action="ImageFilter" method="post"></form>
+					<img src="images/${destination.images[0]}" alt="${destination.images[0]}"/>
 					<!-- On peut mettre dans le card un carousel pour nos images -->
 					<div class="card-body">
 						<h5 class="card-title">${destination.region}</h5>
@@ -68,40 +53,19 @@
 						<p class="card-text">
 							<small class="text-muted"><a
 								href="ModifierDestinationServlet1?id=${destination.id}">Modifier
-									la destination</a></small></br>
-							<small class="text-muted"><a
+									la destination</a></small></br> <small class="text-muted"><a
 								href="SupprimerDestinationServlet?id=${destination.id}">Supprimer
-									la destination</a></small></br>
-							<small class="text-muted"><a
+									la destination</a></small></br> <small class="text-muted"><a
 								href="AfficherDatesVoyageServlet?id=${destination.id}">Afficher
-									les dates de voyage</a></small>		
+									les dates de voyage</a></small>
 						</p>
 					</div>
+					</form>
 				</div>
 			</c:forEach>
 		</div>
 	</div>
 	</table>
-	<h2>-----------------------------------------------------------------------------</h2>
-	<div class="container">
-		<form action="" method="POST">
-			<div>
-				<label for="region">Region : </label> <input name="region"
-					id="region" type="text" placeholder="Region de votre destination" />
-			</div>
-			<div>
-				<label for="description">Description : </label><br>
-				<textarea rows="6" cols="50" id="description" name="description"></textarea>
-			</div>
-			<div>
-				<input type="hidden" name="id" id="id" value="${destination.id }">
-			</div>
-			<div>
-				<input type="submit" value="Créer une destination"
-					formaction="AjouterDestinationServlet" />
-			</div>
-		</form>
-	</div>
 </body>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
 	integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"

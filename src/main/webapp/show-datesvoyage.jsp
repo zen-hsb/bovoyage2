@@ -8,36 +8,30 @@
 <title>Liste des dates pour ${destination.region}</title>
 </head>
 <body>
-<h1>Liste des dates de voyage pour ${destination.region}</h1>
+<h2>Créer de nouvelles dates de voyage pour la destination ${destination.region } :</h2>
 
+<form id="form_1" action="AjouterDatesVoyageServlet?id=${destination.id}" method="GET" accept-charset="UTF-8">
+
+<input name="id2" id="id2" size="20" value=${destination.id } hidden="">
+Date de départ<input type="date" name="dateDepart" id="dateDepart" size="20" required></br>
+Date de retour<input type="date" name="dateRetour" id="dateRetour" size="20" required></br>
+Prix HT<input type="text" name="prixHT"  min="0" id="prixHT" class="champ_non_vide" size="20" placeholder="prix Hors Taxe" required></br>
+Nombre de places Dispo<input type="number" name="nbPlaces" id="nbPlaces" class="champ_non_vide" size="20" required></br>
+<button type="submit">Créer les dates</button>
+
+</form>
+
+<h2>Dates pour la destination ${destination.region } :</h2>
 <table>
 <c:forEach items="${datesvoyages}" var="datesvoyages">
-<tr><td>Date numero : ${datesvoyages.id}</td></tr>
-<tr><td>Date aller : ${datesvoyages.dateAller}</td></tr>
-<tr><td>Date retour : ${datesvoyages.dateRetour}</td></tr>
-<tr><td><a href="SupprimerDatesVoyageServlet?id1=${datesvoyages.id}&id2=${destination.id}">Supprimer cette date</a></td></tr>
-</c:forEach>
+		<tr><td>Date n°${datesvoyages.id }</td></tr>
+		<tr><td>Date de départ:${datesvoyages.dateAller}</td></tr>
+		<tr><td>Date de retour:${datesvoyages.dateRetour}</td></tr>
+		<tr><td>Prix hors taxes:${datesvoyages.prixHT}</td></tr>
+		<tr><td>Nombre de places dispo:${datesvoyages.nbrePlaces}</td></tr>
+		<tr><td><a href="SupprimerDatesVoyageServlet?id1=${datesvoyages.id}&id2=${destination.id}">Supprimer cette date</a></td></tr>
+		<tr><td><a href="ModifierDatesVoyageServlet1?id1=${datesvoyages.id}&id2=${destination.id}">Modifier cette date</a></td></tr>
+		</c:forEach>
 </table>
-
-<h2>-----------------------------------------------------------------------------</h2>
-
-	<div class="container">
-		<form action="" method="POST">
-			<div>
-				<label for="region">Region : </label> <input name="region"
-					id="region" type="text" placeholder="Region de votre destination" />
-			</div>
-			<div>
-				<label for="description">Description : </label><br>
-				<textarea rows="6" cols="50" id="description" name="description"></textarea>
-			</div>
-			<div>
-				<input type="hidden" name="id" id="id" value="${destination.id }">
-			</div>
-			<div>
-				<input type="submit" value="Créer une destination" formaction="AjouterDestinationServlet"/>
-			</div>
-		</form>
-	</div>
 </body>
 </html>
