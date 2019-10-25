@@ -11,8 +11,9 @@
 <form action="AfficherDestinationServlet" method="POST">
 <button type="submit">Voir la liste des destinations</button>
 </form>
-<form action="DateServlet">
+<form action="AfficherDatesVoyageServlet">
 <button type="submit">Voir la liste des dates</button>
 </form>
+
 </body>
 </html>
