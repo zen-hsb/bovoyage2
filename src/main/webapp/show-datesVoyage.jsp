@@ -47,33 +47,26 @@
 
 <h3>Afficher les dates</h3>
 
-<%-- <table>
-		<c:forEach items="${dates_voyages}" var="destination">
-			<tr>
-				<td>${destination.dateDepart}</td>
-				<td>${destination.dateRetour}</td>
-				<td>${destination.prixHT}</td>
-				<td>${destination.nbrePlaces}</td>
-				
-				<td><form action="AfficherDatesVoyageServlet">									<td><a href="SupprimerContactServlet?" id="${contact.id }">Supprimer</a> 
-			<input type="hidden" value="${destination.id }" name="id">
-			<button type="submit">Afficher</button>
-			</form>
-				
-			</tr>
-		</c:forEach>
-	</table> --%>
 	
 	
-	
-	
-	
-	
-	
+-----------------------------	
+<h2>Affichage des images</h2>
+<form action="ImageFilter" method="POST">
+<img src="images/birmanie_1.jpg" width="150" />
+</form>
 
-
-
-
+<%-- <table class="table">	<!-- class="table table-stripped" -->
+	<c:forEach items="${destinations }" var="destination">
+	<tr><th>${destination.region }</th>
+		<td>${destination.description }</td>
+		 <td><img src="images/${destination.images[0]}" alt="${destination.images[0]}"/></td>
+		<td><a href="SupprimerDestinationServlet?id=${destination.id }">Supprimer la destination</a></td>
+		<td><a href="ModifierDestinationServlet?id=${destination.id }">Modifier la destination</a></td>
+		<td><a href="AfficherDatesServlet?id=${destination.id }">Afficher les dates</a></td>
+		<td><a href="AjouterImagesServlet?id=${destination.id }">Ajouter une image</a></td>
+	</tr>
+	</c:forEach>
+</table> --%>
 
 
 
