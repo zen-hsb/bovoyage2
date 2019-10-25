@@ -42,5 +42,8 @@ public class DestinationService {
 	public Set<DatesVoyage> getDatesVoyageByDestinationId(long id) {
 		return destinationdao.getDatesVoyageByDestinationId(id);
 	}
-
+	
+	public void deleteDatesVoyage(long id) {
+		destinationdao.deleteDatesVoyage(id);
+	}
 }

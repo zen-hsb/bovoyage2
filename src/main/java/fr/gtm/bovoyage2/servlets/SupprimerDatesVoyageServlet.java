@@ -1,6 +1,7 @@
 package fr.gtm.bovoyage2.servlets;
 
 import java.io.IOException;
+import java.util.Set;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -9,6 +10,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import fr.gtm.bovoyage2.entities.DatesVoyage;
+import fr.gtm.bovoyage2.entities.Destination;
 import fr.gtm.bovoyage2.services.DestinationService;
 
 /**
@@ -25,10 +28,19 @@ public class SupprimerDatesVoyageServlet extends HttpServlet {
 
 		DestinationService service = (DestinationService) getServletContext().getAttribute(Constantes.DESTINATION_SERVICE);
 		String page = "";
-		String id =request.getParameter("id2");
 		
-		service.delete(id);
-		page="/AfficherDatesVoyageServlet";
+		Long id1 = Long.valueOf(request.getParameter("id1"));
+		Long id2 = Long.valueOf(request.getParameter("id2"));
+		
+		service.deleteDatesVoyage(id1);
+		
+		Set<DatesVoyage> datesvoyages = (Set<DatesVoyage>)service.getDatesVoyageByDestinationId(id2);
+		Destination destination = service.findById(id2);
+		
+		request.setAttribute("destination", destination);
+		request.setAttribute("datesvoyages", datesvoyages);
+		
+		page="/show-datesvoyage.jsp";
 		RequestDispatcher rd = getServletContext().getRequestDispatcher(page);
 		rd.forward(request, response);
 	}

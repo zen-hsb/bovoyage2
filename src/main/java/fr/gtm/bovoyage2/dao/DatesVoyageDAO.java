@@ -1,6 +1,8 @@
 package fr.gtm.bovoyage2.dao;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -22,5 +24,4 @@ public class DatesVoyageDAO extends AbstractDAO<DatesVoyage, Long> {
 		em.close();
 		return datesvoyages;
 	}
-
 }

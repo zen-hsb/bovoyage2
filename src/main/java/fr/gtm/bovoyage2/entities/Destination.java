@@ -7,6 +7,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.CollectionTable;
 import javax.persistence.Column;
 import javax.persistence.ElementCollection;
@@ -41,7 +42,7 @@ public class Destination implements Serializable {
 	//private String nomImages;
 	
 	
-	@OneToMany(fetch=FetchType.LAZY)
+	@OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, fetch=FetchType.LAZY)
 	@JoinColumn(name = "fk_destination")
 	private Set<DatesVoyage> datesVoyage = new HashSet<>();		
 

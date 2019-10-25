@@ -1,0 +1,13 @@
+body {
+    background-color: ghostwhite;
+}
+.bg-light{
+    background-color: ghostwhite !important;
+}
+.btn-outline-success {
+    color: #c69500;
+    border-color: #c69500;
+}
+.container {
+    margin-top: 5em;
+}

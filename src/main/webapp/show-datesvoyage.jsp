@@ -9,18 +9,18 @@
 </head>
 <body>
 <h1>Liste des dates de voyage pour ${destination.region}</h1>
-<table>
 
+<table>
 <c:forEach items="${datesvoyages}" var="datesvoyages">
-<tr>
-<input type="hidden" name="id" id="id" value="${datesvoyages.id }">
-<td>Date aller : ${datesvoyages.dateAller}</td>
-<td>Date retour : ${datesvoyages.dateRetour}</td>
-<td><a href="SupprimerDatesVoyageServlet?id=${destination.id}&id2=${datesvoyages.id}">(X)</a></td>
-</tr>
+<tr><td>Date numero : ${datesvoyages.id}</td></tr>
+<tr><td>Date aller : ${datesvoyages.dateAller}</td></tr>
+<tr><td>Date retour : ${datesvoyages.dateRetour}</td></tr>
+<tr><td><a href="SupprimerDatesVoyageServlet?id1=${datesvoyages.id}&id2=${destination.id}">Supprimer cette date</a></td></tr>
 </c:forEach>
 </table>
+
 <h2>-----------------------------------------------------------------------------</h2>
+
 	<div class="container">
 		<form action="" method="POST">
 			<div>
