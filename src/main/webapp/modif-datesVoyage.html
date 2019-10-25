@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>destination</title>
+<script type="text/javascript" src="modif-datesVoyage.js"></script>
+<style type="text/css"></style>
+
+</head>
+<body>
+<form id="formId">
+<div id="destination">
+	<h6 class="title">Destination</h6>
+	<div>
+		<label for="region">Region </label>
+		<input name="region" id="region" placeholder="region" class="blur"/> 
+		<span id="error_region"class="error"></span>
+	</div>
+	
+	<div>
+		<label for="description">description </label><br>
+		<textarea rows="6" cols="50" id="description" name="description" class="blur"
+		></textarea>													
+		<span id="error_description"></span>
+	</div>
+	<div>
+		
+		<button type="button"  value="Créer une destination" onclick="verifier"> Envoyer</button>
+	</div>
+</div>
+</form>
+</body>
+</html>

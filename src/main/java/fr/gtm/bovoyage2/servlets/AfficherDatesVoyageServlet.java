@@ -26,14 +26,26 @@ public class AfficherDatesVoyageServlet extends HttpServlet {
 		String page = "";
 		
 
-		Long id = Long.valueOf(request.getParameter("id"));
-		Set<DatesVoyage> datesVoyages = (Set<DatesVoyage>)service.getDatesVoyageById(id);		//service.getAllDatesVoyage();
-		Destination destinations = service.findById(id);
+		List<Destination> destinations = service.getAllDestinations();
+		request.setAttribute("destinations", destinations);
+		
+		page = "/show-datesVoyage.jsp";
+		
+		
+		
+		
+		
+		
+		
+//		Long id = Long.valueOf(request.getParameter("id"));
+//		Set<DatesVoyage> datesVoyages = (Set<DatesVoyage>)service.getDatesVoyageById(id);		//service.getAllDatesVoyage();
+//		Destination destinations = service.findById(id);
 		
 //		List<Destination> destinations = service.getAllDestinations();
-		request.setAttribute("destinations", destinations);
-		request.setAttribute("dates_voyages", datesVoyages);
-		page = "/show-datesVoyage.jsp";
+//		request.setAttribute("destinations", destinations);
+//		request.setAttribute("dates_voyages", datesVoyages);
+		
+//		page = "/show-datesVoyage.jsp";
 		
 		RequestDispatcher rd = getServletContext().getRequestDispatcher(page);
 		rd.forward(request, response);

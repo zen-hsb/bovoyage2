@@ -75,4 +75,15 @@ public class DestinationDAO extends AbstractDAO<Destination, Long> {
 		em.close();
 		return datesVoyage;
 	}
+	
+	
+	
+	public void deleteDatesVoyageByID(long id) {
+		EntityManager em = getEntityManagerFactory().createEntityManager();
+		em.getTransaction().begin();
+		DatesVoyage datesVoyage = em.find(DatesVoyage.class, id);
+		em.remove(datesVoyage);
+		em.getTransaction().commit();
+		em.close();	
+	}
 }

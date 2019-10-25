@@ -2,6 +2,7 @@ package fr.gtm.bovoyage2.entities;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.Iterator;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -92,6 +93,11 @@ public class DatesVoyage implements Serializable {
 	public String toString() {
 		return "DatesVoyage [id=" + id + ", dateDepart=" + dateDepart + ", dateRetour=" + dateRetour + ", prixHT="
 				+ prixHT + ", nbrePlaces=" + nbrePlaces + "]";
+	}
+
+	public Iterator<DatesVoyage> iterator() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 	

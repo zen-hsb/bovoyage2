@@ -70,13 +70,13 @@ public class AjouterDatesVoyageServlet extends HttpServlet {
 		Destination destination = service.findById(id); //appelle la méthode "find(destination)ById"
 		
 		Set<DatesVoyage> dates = service.getDatesVoyageById(id);	//appelle méthode "getDatesVoyageBy(Destination)Id"
-		dates.add(datesVoyage);
+		dates.add(datesVoyage); 
 		destination.setDatesVoyage(dates);
 		service.update(destination);
 		
 		Set<DatesVoyage> dates2 = (Set<DatesVoyage>)service.getDatesVoyageById(id);
 		request.setAttribute("destination", destination);
-		request.setAttribute("datesVoyage", datesVoyage);
+		request.setAttribute("dates_voyages", datesVoyage);
 
 		page = "/show-datesVoyage.jsp";
 			
