@@ -39,7 +39,7 @@ public class AjouterDatesVoyageServlet extends HttpServlet {
 		double prixHTNew = Double.parseDouble(prixHT);
 		int nbrePlacesNew = Integer.parseInt(nbrePlaces);
 		
-		DatesVoyage datesVoyage = new DatesVoyage();		//dateDepart, dateRetour, prixHt, nbrePlaces
+		DatesVoyage datesVoyage = new DatesVoyage();		
 		
 		dateDepartNew = dateDepartNew + (" 00:00:00");
 		dateRetourNew = dateRetourNew + (" 00:00:00");
@@ -48,27 +48,21 @@ public class AjouterDatesVoyageServlet extends HttpServlet {
 			
 		java.util.Date dateDepart = null;
 		java.util.Date dateRetour = null;
-			try {
-				dateDepart = formatter.parse(dateDepartNew);
-				dateRetour = formatter.parse(dateRetourNew);
-			} catch (ParseException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
 			
-
+				try {
+					dateDepart = formatter.parse(dateDepartNew);
+				} catch (ParseException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				try {
+					dateRetour = formatter.parse(dateRetourNew);
+				} catch (ParseException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 			
-			
-			
-			
-			
-			
-			
-			
-			
-//		java.util.Date dateDepart = null;
-//		java.util.Date dateRetour = null;
-	
+				
 		datesVoyage.setDateDepart(dateDepart);
 		datesVoyage.setDateRetour(dateRetour);
 		datesVoyage.setPrixHT(prixHTNew);
@@ -85,8 +79,7 @@ public class AjouterDatesVoyageServlet extends HttpServlet {
 		request.setAttribute("datesVoyage", datesVoyage);
 
 		page = "/show-datesVoyage.jsp";
-		
-		
+			
 		
 //		Date date = new SimpleDateFormat("YYYY-MM-DD").parse(dateDepart);
 //		Date dateDepart = formatter.parse(dateDepartNew);		

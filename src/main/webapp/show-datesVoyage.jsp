@@ -45,7 +45,7 @@
 			<td>${destination.prixHT}</td>
 			<td>${destination.nbrePlaces}</td>
 		
-			<td><form action="AfficherDatesVoyageServlet?id=${dates_voyages.id }" method="POST" accept-charset="UTF-8"> 
+			<td><form action="AfficherDatesVoyageServlet?id2=${dates_voyages.id }" method="POST" accept-charset="UTF-8"> 
 
 <button type="submit">Afficher les dates</button>
 </form> 
@@ -101,7 +101,7 @@
 
 -----------------------------
 <h3>Ajouter une date</h3>
-<form action="AjouterDatesVoyageServlet?id=${destination.id }" method="POST">		<!-- accept-charset="UTF-8" -->
+<form action="AjouterDatesVoyageServlet?id2=${destination.id }" method="POST">		<!-- accept-charset="UTF-8" -->
 <%-- <input name="id2" id="id2" size="20" value=${destination.id } hidden=""> --%>
 Date Depart	:		<input name="dateDepart" type="date" id="dateDepart" size="20" placeholder="Entrez la date de Depart">
 <br>

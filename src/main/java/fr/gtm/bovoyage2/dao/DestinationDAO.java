@@ -35,13 +35,6 @@ public class DestinationDAO extends AbstractDAO<Destination, Long> {
 		return datesVoyage;
 	}
 	
-//	public List<DatesVoyage> getDatesVoyageByDestination() {
-//		EntityManager em = getEntityManagerFactory().createEntityManager();
-//		List<DatesVoyage> datesVoyage = em.createNamedQuery("Destination.getDatesVoyageByDestination", DatesVoyage.class).getResultList();
-//		
-//		em.close();
-//		return datesVoyage;
-//	}
 
 	public List<DatesVoyage> getDatesVoyagesByDestinationId(long id) {
 		EntityManager em = getEntityManagerFactory().createEntityManager();

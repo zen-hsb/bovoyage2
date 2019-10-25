@@ -43,9 +43,6 @@ public class DestinationService {
 		return destinationdao.getAllDatesVoyage();
 	}
 	
-//	public List<DatesVoyage> getDatesVoyageByDestination() {
-//		return destinationdao.getDatesVoyageByDestination();
-//	}
 	
 	public List<DatesVoyage> getDatesVoyageByDestinationId(long id) {
 		return destinationdao.getDatesVoyagesByDestinationId(id);
@@ -59,11 +56,6 @@ public class DestinationService {
 	public void update(Date datesVoyage) {
 		destinationdao.update(datesVoyage);
 	}
-
-//	public Destination getDestinationById(Long id) {
-//		// TODO Auto-generated method stub
-//		return null;
-//	}
 	
 	
 	public Set<DatesVoyage> getDatesVoyageById(long id) {
@@ -71,7 +63,5 @@ public class DestinationService {
 	}
 
 	
-	
-
 
 }

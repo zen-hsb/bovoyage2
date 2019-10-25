@@ -2,6 +2,7 @@ package fr.gtm.bovoyage2.servlets;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.Set;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -24,9 +25,14 @@ public class AfficherDatesVoyageServlet extends HttpServlet {
 		DestinationService service = (DestinationService) getServletContext().getAttribute(Constantes.DESTINATION_SERVICE);
 		String page = "";
 		
-//		List<DatesVoyage> datesVoyage = service.getDatesVoyageByDestinationId();		//service.getAllDatesVoyage();
-		List<Destination> destinations = service.getAllDestinations();
+
+		Long id = Long.valueOf(request.getParameter("id"));
+		Set<DatesVoyage> datesVoyages = (Set<DatesVoyage>)service.getDatesVoyageById(id);		//service.getAllDatesVoyage();
+		Destination destinations = service.findById(id);
+		
+//		List<Destination> destinations = service.getAllDestinations();
 		request.setAttribute("destinations", destinations);
+		request.setAttribute("dates_voyages", datesVoyages);
 		page = "/show-datesVoyage.jsp";
 		
 		RequestDispatcher rd = getServletContext().getRequestDispatcher(page);

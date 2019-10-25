@@ -59,9 +59,6 @@ public class Destination implements Serializable {
 	
 	
 	
-//	private List<String> images = new ArrayList<>();			
-//	private Set<DatesVoyage> datesVoyage2 = new HashSet<>();
-	
 	public Destination() {
 		
 	}
@@ -188,10 +185,6 @@ public class Destination implements Serializable {
 		return true;
 	}
 
-
-
-
-	
 	
 	
 }
