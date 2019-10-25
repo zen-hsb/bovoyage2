@@ -5,7 +5,7 @@ function verifier() {
 	ok = ok & !isEmpty('description');
 	
 	if(!ok){
-		event.preventDefault(); 
+		event.preventDefault(); 					//n'envoie pas le formulaire si champ vide
 	}							
 	return ok;
 }
